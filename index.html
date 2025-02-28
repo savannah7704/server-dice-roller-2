@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dice Roller API Test</title>
+    </head>
+    <body>
+        <h1>Dice Roller API Test</h1>
+        <button onclick="testApi()">Roll Dice</button>
+        <p id="result"></p>
+
+        <script>
+            async function testApi() {
+                try {
+                    const response = await fetch('/api/roll-dice');
+                    const data = await response.json();
+                    document.getElementById('result').innerText = `Result: ${data.roll}`;
+                } catch (error) {
+                    console.error('Error: ', error);
+                }
+            }
+        </script>
+    </body>
+</html>
